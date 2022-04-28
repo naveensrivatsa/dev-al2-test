@@ -1,0 +1,49 @@
+resources:
+  - name: source-code
+    type: git
+    source:
+      branch: master
+      private_key: |
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+        QyNTUxOQAAACBo75ShPPZCT7XduUak54n5VOvUYaib2VPNRgfdo+rRAQAAAKCmsXecprF3
+        nAAAAAtzc2gtZWQyNTUxOQAAACBo75ShPPZCT7XduUak54n5VOvUYaib2VPNRgfdo+rRAQ
+        AAAEBVo/QxZzTosir3usG+Jw6qAVONw7Cb2+BAd+PixTMa6GjvlKE89kJPtd25RqTniflU
+        69RhqJvZU81GB92j6tEBAAAAGG5hdmVlbnNyaXZhdHNhQGdtYWlsLmNvbQECAwQF
+        -----END OPENSSH PRIVATE KEY-----
+      uri: git@github.com:naveensrivatsa/linux2.git
+
+jobs:
+  - name: create-hardened-ami-image
+    plan:
+    - get: source-code
+    - task: packer-build
+      config:
+        platform: linux
+        image_resource:
+          type: docker-image
+          source:
+            repository: amazonlinux
+            tag: latest
+            username: wissen8891
+            password: Mico@1988
+        inputs:
+          - name: source-code
+        run:
+          dir: source-code
+          path: sh
+          args:
+          - -exc
+          - |
+            yum update -y
+            yum install -y yum-utils
+            yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+            yum -y install packer
+            cd packer
+            # cat template.json
+            packer version
+            packer build \
+              -var 'aws_access_key=AKIA2PTGWRF6D4W7SEHS' \
+              -var 'aws_secret_key=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' \
+              -var 'ssh_username=ec2-user' \
+              template.json
