@@ -4,13 +4,6 @@ resources:
     source:
       branch: testing
       private_key: |
-        -----BEGIN OPENSSH PRIVATE KEY-----
-        b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-        QyNTUxOQAAACBo75ShPPZCT7XduUak54n5VOvUYaib2VPNRgfdo+rRAQAAAKCmsXecprF3
-        nAAAAAtzc2gtZWQyNTUxOQAAACBo75ShPPZCT7XduUak54n5VOvUYaib2VPNRgfdo+rRAQ
-        AAAEBVo/QxZzTosir3usG+Jw6qAVONw7Cb2+BAd+PixTMa6GjvlKE89kJPtd25RqTniflU
-        69RhqJvZU81GB92j6tEBAAAAGG5hdmVlbnNyaXZhdHNhQGdtYWlsLmNvbQECAwQF
-        -----END OPENSSH PRIVATE KEY-----
       uri: git@github.com:naveensrivatsa/linux2.git
 
 jobs:
