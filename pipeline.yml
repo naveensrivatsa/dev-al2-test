@@ -2,7 +2,7 @@ resources:
   - name: source-code
     type: git
     source:
-      branch: master
+      branch: testing
       private_key: |
         -----BEGIN OPENSSH PRIVATE KEY-----
         b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
@@ -43,7 +43,7 @@ jobs:
             # cat template.json
             packer version
             packer build \
-              -var 'aws_access_key=AKIA2PTGWRF6D4W7SEHS' \
-              -var 'aws_secret_key=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' \
+              -var 'aws_access_key=' \
+              -var 'aws_secret_key=' \
               -var 'ssh_username=ec2-user' \
               template.json
