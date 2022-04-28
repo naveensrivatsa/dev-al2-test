@@ -18,8 +18,8 @@ jobs:
           source:
             repository: amazonlinux
             tag: latest
-            username: wissen8891
-            password: Mico@1988
+            username: 
+            password: 
         inputs:
           - name: source-code
         run:
