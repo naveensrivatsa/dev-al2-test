@@ -3,7 +3,8 @@
   become: yes
 
   tasks:
-    - include_role:
+    - name:include_role 'rhel7STIG'
+      include_role:
         name: rhel7STIG
 #     - include_role:
 #         name: ./ami-scan
