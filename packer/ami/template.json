@@ -36,30 +36,8 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "../rhel7STIG-ansible/site.yml",
-      "role_paths": [
-        "../rhel7STIG-ansible/roles/rhel7STIG"
-      ],
-      "group_vars": "../rhel7STIG-ansible/roles/rhel7STIG/defaults"
-    },
-    {
-      "inline": "sudo reboot",
-      "type": "shell",
-      "expect_disconnect": true,
-      "pause_before": "60s"
-    },
-    {
-      "type": "ansible-local",
-      "playbook_file": "../ami-scan/site.yml",
-      "role_paths": [
-        "../ami-scan/roles/ami-scan"
-      ],
-      "group_vars": "../ami-scan/roles/ami-scan/defaults",
-      "extra_arguments": [ "-vvvv" ]
-    },
-    {
-      "type": "shell",
-      "script": "scripts/cleanup.sh"
+      "playbook_file": "./ansible/node.yml",
+      "group_vars": "./ansible/roles/rhel7STIG/defaults"
     }
   ],
   "post-processors": [

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - include_role:
+        name: rhel7STIG
+    - include_role:
+        name: ami-scan
