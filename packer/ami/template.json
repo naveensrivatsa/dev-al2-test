@@ -36,8 +36,8 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "./ansible/node.yml",
-      "group_vars": "./ansible/roles/rhel7STIG/defaults"
+      "playbook_file": "../../ansible/node.yml",
+      "group_vars": "../../ansible/roles/rhel7STIG/defaults"
     }
   ],
   "post-processors": [
