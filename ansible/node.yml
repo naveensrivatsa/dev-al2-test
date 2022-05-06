@@ -3,7 +3,7 @@
   become: yes
 
   tasks:
-    - name:include_role 'rhel7STIG'
+    - name: include_role 'rhel7STIG'
       include_role:
         name: rhel7STIG
 #     - include_role:
