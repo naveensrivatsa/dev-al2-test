@@ -31,9 +31,19 @@
   "_comment": "Running Ansible roles on the image",
   "provisioners": [
     {
-      "type": "ansible",
+      "ansible_env_vars": [
+        "ANSIBLE_SSH_ARGS='{{user `existing_ansible_ssh_args`}} -o IdentitiesOnly=yes'"
+      ],
+      "extra_arguments": [
+        "--extra-vars",
+        "{{user `ansible_common_vars`}}",
+        "--extra-vars",
+        "{{user `ansible_extra_vars`}}",
+        "--extra-vars",
+        "{{user `ansible_user_vars`}}"
+      ],
       "playbook_file": "../../ansible/node.yml",
-      "group_vars": "../../ansible/roles/rhel7STIG/defaults"
+      "type": "ansible"
     }
   ],
   "post-processors": [
