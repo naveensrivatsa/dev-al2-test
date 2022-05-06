@@ -4,6 +4,6 @@
 
   tasks:
     - include_role:
-        name: ./roles/rhel7STIG
+        name: rhel7STIG
 #     - include_role:
 #         name: ./ami-scan
