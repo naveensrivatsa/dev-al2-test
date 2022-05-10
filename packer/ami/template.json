@@ -80,7 +80,7 @@
             "--extra-vars",
             "{{user `ansible_user_vars`}}"
         ],
-        "playbook_file": "../ami/ansible/node.yml",
+        "playbook_file": "../../ansible/node.yml",
         "type": "ansible"
     }
   ],
