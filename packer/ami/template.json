@@ -1,7 +1,45 @@
- {
+{
   "variables": {
+    "ami_description": "",
+    "ami_groups": "",
+    "ami_regions": "",
+    "ami_users": "",
+    "ansible_common_vars": "",
+    "ansible_extra_vars": "",
+    "ansible_user_vars": "",
     "aws_access_key": "",
-    "aws_secret_key": ""
+    "aws_profile": "",
+    "aws_region": "us-east-1",
+    "aws_secret_key": "",
+    "aws_security_group_ids": "",
+    "build_timestamp": "",
+    "builder_instance_type": "",
+    "containerd_sha256": "",
+    "containerd_url": "",
+    "containerd_version": "",
+    "crictl_url": "",
+    "crictl_version": "",
+    "encrypted": "false",
+    "existing_ansible_ssh_args": "{{env `ANSIBLE_SSH_ARGS`}}",
+    "iam_instance_profile": "",
+    "ib_version": "",
+    "iops": "3000",
+    "kms_key_id": "",
+    "manifest_output": "manifest.json",
+    "python_path": "",
+    "skip_create_ami": "false",
+    "skip_profile_validation": "false",
+    "snapshot_groups": "",
+    "snapshot_users": "",
+    "ssh_keypair_name": "",
+    "ssh_private_key_file": "",
+    "subnet_id": "",
+    "temporary_security_group_source_cidrs": "",
+    "throughput": "125",
+    "user_data": "",
+    "volume_size": "8",
+    "volume_type": "gp3",
+    "vpc_id": ""
   },
   "builders": [
     {
@@ -31,21 +69,19 @@
   "_comment": "Running Ansible roles on the image",
   "provisioners": [
     {
-      "ansible_env_vars": [
-        "ANSIBLE_SSH_ARGS='{{user `existing_ansible_ssh_args`}} -o IdentitiesOnly=yes'"
-      ],
-      "extra_arguments": [
-        "--extra-vars",
-        "{{user `ansible_common_vars`}}",
-        "--extra-vars",
-        "{{user `ansible_extra_vars`}}",
-        "--extra-vars",
-        "{{user `ansible_user_vars`}}",
-        "-vvvv"
-      ],
-      "playbook_file": "../../ansible/node.yml",
-      "type": "ansible",
-      "user": "ec2-user"
+        "ansible_env_vars": [
+            "ANSIBLE_SSH_ARGS='{{user `existing_ansible_ssh_args`}} -o IdentitiesOnly=yes'"
+        ],
+        "extra_arguments": [
+            "--extra-vars",
+            "{{user `ansible_common_vars`}}",
+            "--extra-vars",
+            "{{user `ansible_extra_vars`}}",
+            "--extra-vars",
+            "{{user `ansible_user_vars`}}"
+        ],
+        "playbook_file": "../ami/ansible/node.yml",
+        "type": "ansible"
     }
   ],
   "post-processors": [
