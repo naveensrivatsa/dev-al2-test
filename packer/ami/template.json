@@ -81,8 +81,7 @@
             "{{user `ansible_user_vars`}}"
         ],
         "playbook_file": "ansible/node.yml",
-        "type": "ansible",
-        "group_vars": "ansible/roles/rhel7STIG/defaults"
+        "type": "ansible"
     }
   ],
   "post-processors": [
