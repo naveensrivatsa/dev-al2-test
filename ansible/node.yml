@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: false
   become: yes
-  become_user: root
+  sudo: yes
 
   tasks:
     - name: include_role 'rhel7STIG'
