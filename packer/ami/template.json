@@ -82,7 +82,7 @@
         ],
         "playbook_file": "ansible/node.yml",
         "type": "ansible",
-        "group_vars": "ansible/roles/rhel7STIG/defaults/"
+        "group_vars": "ansible/roles/rhel7STIG/defaults"
     }
   ],
   "post-processors": [
