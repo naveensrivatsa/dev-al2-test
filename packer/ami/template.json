@@ -78,7 +78,8 @@
             "--extra-vars",
             "{{user `ansible_extra_vars`}}",
             "--extra-vars",
-            "{{user `ansible_user_vars`}}"
+            "{{user `ansible_user_vars`}}",
+            "-vvvv"
         ],
         "playbook_file": "ansible/node.yml",
         "type": "ansible"
